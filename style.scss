@@ -1,3 +1,13 @@
 * {
 	font-family: "Montserrat", sans-serif;
 }
+
+body {
+	background: rgb(131, 58, 180);
+	background: linear-gradient(
+		90deg,
+		hsla(44, 70%, 80%, 1) 0%,
+		hsla(64, 70%, 80%, 1) 50%,
+		hsla(90, 70%, 80%, 1) 100%
+	);
+}
