@@ -1,25 +1,22 @@
 * {
-	font-family: "Montserrat", sans-serif;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	border: 0;
 }
 
 body {
-	height: 100vh;
 	background: rgb(131, 58, 180);
-	background: linear-gradient(
-		120deg,
-		hsla(270, 75%, 50%, 1) 0%,
-		hsla(200, 75%, 50%, 1) 50%,
-		hsla(170, 75%, 50%, 1) 100%
-	);
+	background: linear-gradient(120deg, hsl(54, 100%, 70%) 0%, hsl(10, 100%, 70%) 100%);
+	font-family: "Montserrat", sans-serif;
+	min-height: 100vh;
+	color: white;
 }
 
 body {
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	// align-items: center;
 }
 
 .container {
@@ -28,13 +25,79 @@ body {
 
 .header {
 	font-size: 1.5rem;
-	padding: 20px 0;
+	text-align: center;
+	padding: 25px 0;
+	text-shadow: 2px 2px 8px #666;
+}
+
+.input-container {
+	margin: 20px 0;
+	box-shadow: 2px 2px 7px 0px #6666;
+	display: inline-flex;
+}
+
+.todo-input {
+	padding: 5px 10px;
+	min-width: 250px;
 }
 
 .todo-btn {
-	padding: 5px;
-
+	font-size: 1.3rem;
+	padding: 3px;
+	transition: all 0.5s;
+	background: white;
 	&:hover {
 		cursor: pointer;
 	}
+
+	&.todo-btn-add {
+		color: hsl(288, 100%, 40%);
+
+		&:hover {
+			background: hsl(288, 100%, 40%);
+			color: white;
+		}
+	}
+	&.todo-btn-remove {
+		color: hsl(22, 100%, 40%);
+		&:hover {
+			background: hsl(22, 100%, 40%);
+			color: white;
+		}
+	}
+	&.todo-btn-done {
+		color: hsl(125, 100%, 40%);
+		&:hover {
+			background: hsl(125, 100%, 40%);
+			color: white;
+		}
+	}
+}
+
+// header form {
+// 	min-height: 20vh;
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// }
+
+// form button,
+// form input {
+// 	padding: 0.5rem;
+// 	font-size: 2rem;
+// 	border: none;
+// 	background: white;
+// }
+
+// .todo-input {
+// 	// background-color: red;
+// 	// float: left;
+// 	display: block;
+// }
+
+input {
+	display: block;
+}
+
+.input-line {
 }

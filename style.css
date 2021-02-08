@@ -1,15 +1,17 @@
 * {
-  font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  border: 0;
 }
 
 body {
-  height: 100vh;
   background: #833ab4;
-  background: linear-gradient(120deg, #8020df 0%, #209fdf 50%, #20dfbf 100%);
+  background: linear-gradient(120deg, #fff066 0%, #ff8066 100%);
+  font-family: "Montserrat", sans-serif;
+  min-height: 100vh;
+  color: white;
 }
 
 body {
@@ -19,9 +21,6 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .container {
@@ -30,13 +29,64 @@ body {
 
 .header {
   font-size: 1.5rem;
-  padding: 20px 0;
+  text-align: center;
+  padding: 25px 0;
+  text-shadow: 2px 2px 8px #666;
+}
+
+.input-container {
+  margin: 20px 0;
+  -webkit-box-shadow: 2px 2px 7px 0px #6666;
+          box-shadow: 2px 2px 7px 0px #6666;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.todo-input {
+  padding: 5px 10px;
+  min-width: 250px;
 }
 
 .todo-btn {
-  padding: 5px;
+  font-size: 1.3rem;
+  padding: 3px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background: white;
 }
 
 .todo-btn:hover {
   cursor: pointer;
+}
+
+.todo-btn.todo-btn-add {
+  color: #a300cc;
+}
+
+.todo-btn.todo-btn-add:hover {
+  background: #a300cc;
+  color: white;
+}
+
+.todo-btn.todo-btn-remove {
+  color: #cc4b00;
+}
+
+.todo-btn.todo-btn-remove:hover {
+  background: #cc4b00;
+  color: white;
+}
+
+.todo-btn.todo-btn-done {
+  color: #00cc11;
+}
+
+.todo-btn.todo-btn-done:hover {
+  background: #00cc11;
+  color: white;
+}
+
+input {
+  display: block;
 }
