@@ -12,9 +12,6 @@ body {
   font-family: "Montserrat", sans-serif;
   min-height: 100vh;
   color: white;
-}
-
-body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -79,11 +76,11 @@ body {
 }
 
 .todo-btn.todo-btn-done {
-  color: #00cc11;
+  color: #00b30f;
 }
 
 .todo-btn.todo-btn-done:hover {
-  background: #00cc11;
+  background: #00b30f;
   color: white;
 }
 
