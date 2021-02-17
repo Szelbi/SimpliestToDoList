@@ -1,4 +1,5 @@
-* {
+*,
+*:hover {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -40,21 +41,40 @@ body {
   display: inline-flex;
 }
 
+.input-container:hover {
+  -webkit-box-shadow: 0px 0px 10px 5px #6666;
+          box-shadow: 0px 0px 10px 5px #6666;
+}
+
+.input-container:focus {
+  outline: none;
+  -webkit-box-shadow: 0px 0px 10px 5px #6666;
+          box-shadow: 0px 0px 10px 5px #6666;
+}
+
 .todo-input {
   padding: 5px 10px;
   min-width: 250px;
 }
 
+.todo-input:focus {
+  outline: none;
+}
+
 .todo-btn {
   font-size: 1.3rem;
   padding: 3px;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
   background: white;
 }
 
 .todo-btn:hover {
   cursor: pointer;
+}
+
+.todo-btn:focus {
+  outline: none;
 }
 
 .todo-btn.todo-btn-add {
