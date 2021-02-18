@@ -107,3 +107,8 @@ body {
 		}
 	}
 }
+
+.fa-check-circle,
+.fa-trash-alt {
+	pointer-events: none;
+}
