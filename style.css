@@ -139,3 +139,8 @@ body {
   background: #00b30f;
   color: white;
 }
+
+.fa-check-circle,
+.fa-trash-alt {
+  pointer-events: none;
+}
