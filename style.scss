@@ -34,6 +34,9 @@ body {
 
 .container {
 	padding: 1rem;
+	// justify-content: center;
+	// align-items: center;
+	text-align: center;
 }
 
 .header {
@@ -43,36 +46,29 @@ body {
 	text-shadow: 2px 2px 6px #6669;
 }
 
-.input-container {
-	margin: 20px 0;
+.input-form,
+.todo-item {
+	margin: 10px 0;
 	box-shadow: 2px 2px 7px 0px #6666;
-	display: inline-flex;
+
 	&:hover {
-		box-shadow: 0px 0px 10px 5px #6666;
-	}
-	&:focus {
-		outline: none;
 		box-shadow: 0px 0px 10px 5px #6666;
 	}
 }
 
+.input-form {
+	margin-bottom: 3rem;
+	display: inline-flex;
+}
+
 .todo-item {
-	margin: 20px 0;
-	box-shadow: 2px 2px 7px 0px #6666;
 	display: flex;
-	&:hover {
-		box-shadow: 0px 0px 10px 5px #6666;
-	}
-	&:focus {
-		outline: none;
-		box-shadow: 0px 0px 10px 5px #6666;
-	}
 }
 
 .todo-input,
 .todo-value {
 	padding: 5px 10px;
-	min-width: 250px;
+	min-width: 300px;
 	&:focus {
 		outline: none;
 	}
