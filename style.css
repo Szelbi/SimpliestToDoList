@@ -50,6 +50,7 @@ body {
 
 .container {
   padding: 1rem;
+  text-align: center;
 }
 
 .header {
@@ -59,50 +60,36 @@ body {
   text-shadow: 2px 2px 6px #6669;
 }
 
-.input-container {
-  margin: 20px 0;
-  -webkit-box-shadow: 2px 2px 7px 0px #6666;
-          box-shadow: 2px 2px 7px 0px #6666;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-
-.input-container:hover {
-  -webkit-box-shadow: 0px 0px 10px 5px #6666;
-          box-shadow: 0px 0px 10px 5px #6666;
-}
-
-.input-container:focus {
-  outline: none;
-  -webkit-box-shadow: 0px 0px 10px 5px #6666;
-          box-shadow: 0px 0px 10px 5px #6666;
-}
-
+.input-form,
 .todo-item {
-  margin: 20px 0;
+  margin: 10px 0;
   -webkit-box-shadow: 2px 2px 7px 0px #6666;
           box-shadow: 2px 2px 7px 0px #6666;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
+.input-form:hover,
 .todo-item:hover {
   -webkit-box-shadow: 0px 0px 10px 5px #6666;
           box-shadow: 0px 0px 10px 5px #6666;
 }
 
-.todo-item:focus {
-  outline: none;
-  -webkit-box-shadow: 0px 0px 10px 5px #6666;
-          box-shadow: 0px 0px 10px 5px #6666;
+.input-form {
+  margin-bottom: 3rem;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.todo-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .todo-input,
 .todo-value {
   padding: 5px 10px;
-  min-width: 250px;
+  min-width: 300px;
 }
 
 .todo-input:focus,
