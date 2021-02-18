@@ -99,12 +99,14 @@ body {
           box-shadow: 0px 0px 10px 5px #6666;
 }
 
-.todo-input {
+.todo-input,
+.todo-value {
   padding: 5px 10px;
   min-width: 250px;
 }
 
-.todo-input:focus {
+.todo-input:focus,
+.todo-value:focus {
   outline: none;
 }
 

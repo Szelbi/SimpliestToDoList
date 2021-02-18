@@ -20,8 +20,8 @@ function addTodo(event) {
 
     // input 
     let todoValue = document.createElement('input');
-    todoValue.classList.add("todo-input");
-    todoValue.value = "123qwe";
+    todoValue.classList.add("todo-value");
+    todoValue.value = todoInput.value;
     todoItem.appendChild(todoValue);
 
     // button Done
@@ -36,5 +36,7 @@ function addTodo(event) {
     removeButton.classList.add('todo-btn', 'todo-btn-remove');
     todoItem.appendChild(removeButton);
 
+    // clear Input value
+    todoInput.value = '';
 
 }

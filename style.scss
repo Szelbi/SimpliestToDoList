@@ -69,7 +69,8 @@ body {
 	}
 }
 
-.todo-input {
+.todo-input,
+.todo-value {
 	padding: 5px 10px;
 	min-width: 250px;
 	&:focus {
