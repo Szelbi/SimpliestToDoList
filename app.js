@@ -19,9 +19,10 @@ function addTodo(event) {
     todoList.appendChild(todoItem);
 
     // input 
-    let todoInput = document.createElement('input');
-    todoInput.classList.add("todo-input");
-    todoItem.appendChild(todoInput);
+    let todoValue = document.createElement('input');
+    todoValue.classList.add("todo-value");
+    todoValue.value = "123qwe";
+    todoItem.appendChild(todoValue);
 
     // button Done
     let doneButton = document.createElement('button');
