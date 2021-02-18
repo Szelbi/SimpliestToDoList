@@ -51,7 +51,11 @@ function checkOrRemove(event) {
 
     // delete todo
     if (item.classList[1] === 'todo-btn-remove') {
-        todo.remove();
+        todo.classList.toggle('fall');
+        todo.addEventListener('transitionend', () => {
+            todo.remove();
+        })
+        // todo.remove();
     }
 
     // mark todo as done

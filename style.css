@@ -151,3 +151,9 @@ body {
   text-decoration: line-through;
   opacity: 0.5;
 }
+
+.fall {
+  -webkit-transform: translateY(8rem) rotateZ(20deg);
+          transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
+}
