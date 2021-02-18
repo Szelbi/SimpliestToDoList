@@ -8,8 +8,10 @@
 }
 
 body {
-  background: #833ab4;
-  background: linear-gradient(120deg, #fff066 0%, #ff8066 100%);
+  background: linear-gradient(220deg, #f0e375, #75f0b3, #759ef0);
+  background-size: 400% 400%;
+  -webkit-animation: gradient 15s ease infinite;
+          animation: gradient 15s ease infinite;
   font-family: "Montserrat", sans-serif;
   min-height: 100vh;
   color: white;
@@ -19,6 +21,30 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .container {
