@@ -20,7 +20,7 @@ function addTodo(event) {
 
     // input 
     let todoValue = document.createElement('input');
-    todoValue.classList.add("todo-value");
+    todoValue.classList.add("todo-input");
     todoValue.value = "123qwe";
     todoItem.appendChild(todoValue);
 
