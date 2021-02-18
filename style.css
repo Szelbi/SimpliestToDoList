@@ -147,7 +147,7 @@ body {
   pointer-events: none;
 }
 
-.todo-done {
+.completed {
   text-decoration: line-through;
   opacity: 0.5;
 }

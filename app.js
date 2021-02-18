@@ -47,9 +47,15 @@ function checkOrRemove(event) {
     console.log(event.target);
 
     let item = event.target;
+    let todo = item.parentElement;
 
+    // delete todo
     if (item.classList[1] === 'todo-btn-remove') {
-        let todo = item.parentElement;
         todo.remove();
+    }
+
+    // mark todo as done
+    if (item.classList[1] === 'todo-btn-done') {
+        todo.classList.toggle('completed');
     }
 }
