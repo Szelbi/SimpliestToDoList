@@ -89,7 +89,7 @@ body {
 .todo-input,
 .todo-value {
   padding: 5px 10px;
-  min-width: 300px;
+  min-width: 200px;
 }
 
 .todo-input:focus,
@@ -138,8 +138,4 @@ body {
 .todo-btn.todo-btn-done:hover {
   background: #00b30f;
   color: white;
-}
-
-input {
-  display: block;
 }
