@@ -40,17 +40,16 @@ body {
 .header {
 	font-size: 2rem;
 	text-align: center;
-	padding: 25px 0;
+	padding: 3rem 0;
 	text-shadow: 2px 2px 6px #6669;
 }
 
 .todos-container {
-	margin: 30px 0;
+	margin: 2rem 0;
 }
 
 .input-form,
 .todo-item {
-	margin: 1rem 0;
 	box-shadow: 2px 2px 7px 0px #6666;
 	transition: all 0.5s ease;
 
@@ -65,12 +64,12 @@ body {
 
 .todo-item {
 	display: flex;
+	margin: 0.5rem 0;
 }
 
 .todo-input,
 .todo-value {
 	color: #666;
-	// font-size: 1rem;
 	padding: 5px 10px;
 	min-width: 300px;
 	&:focus {
@@ -133,23 +132,22 @@ $purple: hsl(288, 100%, 40%);
 	opacity: 0;
 }
 
-$darkcolor: #444;
-
 .filter-container {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin: 30px 0;
+	// flex: 1 1 0px;
+	flex-basis: auto;
+	flex-grow: 1;
+	flex-basis: 0;
+	margin: 2rem 0;
 }
 
 .radiobtn {
-	padding: 20px;
+	padding: 1rem;
 	label {
-		// display: block;
-		// border-radius: 5px;
-		padding: 10px 20px;
-		// border: 1px solid lighten($purple, 20%);
-		// margin-bottom: 5px;
+		border-radius: 5px;
+		padding: 0.6rem 1.2rem;
 		cursor: pointer;
 		box-shadow: 2px 2px 10px 1px #6666;
 	}
