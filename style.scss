@@ -75,6 +75,10 @@ body {
 	}
 }
 
+$green: hsl(125, 100%, 35%);
+$red: hsl(22, 100%, 40%);
+$purple: hsl(288, 100%, 40%);
+
 .todo-btn {
 	font-size: 1.3rem;
 	padding: 3px;
@@ -88,24 +92,24 @@ body {
 	}
 
 	&.todo-btn-add {
-		color: hsl(288, 100%, 40%);
+		color: $purple;
 
 		&:hover {
-			background: hsl(288, 100%, 40%);
+			background: $purple;
 			color: white;
 		}
 	}
 	&.todo-btn-remove {
-		color: hsl(22, 100%, 40%);
+		color: $red;
 		&:hover {
-			background: hsl(22, 100%, 40%);
+			background: $red;
 			color: white;
 		}
 	}
 	&.todo-btn-done {
-		color: hsl(125, 100%, 35%);
+		color: $green;
 		&:hover {
-			background: hsl(125, 100%, 35%);
+			background: $green;
 			color: white;
 		}
 	}
@@ -126,7 +130,7 @@ body {
 	opacity: 0;
 }
 
-$accentcolor: #fcae2c;
+$accentcolor: #2cf5fc;
 $lightcolor: #fff;
 $darkcolor: #444;
 
@@ -141,7 +145,6 @@ $darkcolor: #444;
 	position: relative;
 	label {
 		display: block;
-		background: lighten($accentcolor, 30%);
 		color: $darkcolor;
 		border-radius: 5px;
 		padding: 10px 20px;
