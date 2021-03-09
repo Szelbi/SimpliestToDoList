@@ -25,20 +25,22 @@
                 <i class="fas fa-plus-circle"></i>
             </button>
         </form>
-        <div class="filter">
-            <label class="container">One
-                <input type="radio" checked="checked" name="radio">
-                <span class="checkmark"></span>
-            </label>
-            <label class="container">Two
-                <input type="radio" name="radio">
-                <span class="checkmark"></span>
-            </label>
-            <label class="container">Three
-                <input type="radio" name="radio">
-                <span class="checkmark"></span>
-            </label>
-        </div>
+        <form class="filter">
+            <div class="radiobtn">
+                <input type="radio" id="all" name="drone" value="all" checked />
+                <label for="all">All</label>
+            </div>
+
+            <div class="radiobtn">
+                <input type="radio" id="done" name="drone" value="done" />
+                <label for="done">Done</label>
+            </div>
+
+            <div class="radiobtn">
+                <input type="radio" id="todo" name="drone" value="todo" />
+                <label for="todo">To do</label>
+            </div>
+        </form>
 
         <div class="todos-container">
             <ul class="todo-list">
