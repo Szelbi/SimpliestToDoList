@@ -60,6 +60,10 @@ body {
   text-shadow: 2px 2px 6px #6669;
 }
 
+.todos-container {
+  margin: 30px 0;
+}
+
 .input-form,
 .todo-item {
   margin: 1rem 0;
@@ -76,7 +80,6 @@ body {
 }
 
 .input-form {
-  margin-bottom: 3rem;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -169,6 +172,11 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin: 30px 0;
+}
+
+.radiobtn {
+  padding: 20px;
 }
 
 .radiobtn label {
@@ -180,7 +188,6 @@ body {
 
 .radiobtn input[type="radio"] {
   display: none;
-  width: 100%;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
