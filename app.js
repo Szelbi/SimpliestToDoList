@@ -120,15 +120,15 @@ function checkLocalStorage(arrayKey) {
 function saveToLocalStorage(todo) {
 
     let todos;
-    todos = checkLocalStorage('todos');
+    todos = checkLocalStorage('todoitems');
     todos.push(todo);
-    localStorage.setItem('todos', JSON.stringify(todos));
+    localStorage.setItem('todoitems', toJSON(todos));
 
 
     var datas = [[1, 2], 2, 3];
-    localStorage.setItem('datas', JSON.stringify(datas));
+    localStorage.setItem('datas', toJSON(datas));
 
-    alert(checkLocalStorage('datas'));
+    // alert(checkLocalStorage('datas'));
 
 }
 
@@ -136,7 +136,7 @@ function getTodos() {
 
     let todos;
 
-    todos = checkLocalStorage('todos');
+    todos = checkLocalStorage('todoitems');
 
     todos.forEach(function (todo) {
 
@@ -168,7 +168,7 @@ function getTodos() {
 function removeTodos(todoValue) {
 
     let todos;
-    todos = checkLocalStorage('todos');
+    todos = checkLocalStorage('todoitems');
 
     // get index of removed value
     const todoIndex = todos.indexOf(todoValue);
@@ -177,8 +177,13 @@ function removeTodos(todoValue) {
     todos.splice(todoIndex, 1);
 
     // set new array into local storage
-    localStorage.setItem('todos', JSON.stringify(todos));
+    localStorage.setItem('todoitems', toJSON(todos));
 
     alert(checkLocalStorage('todos'));
 
+}
+
+
+function toJSON(array) {
+    return JSON.stringify(array);
 }
