@@ -125,9 +125,8 @@ function saveToLocalStorage(todo) {
     localStorage.setItem('todos', JSON.stringify(todos));
 
 
-    var datas = [[1, 2], "2", "3"];
+    var datas = [[1, 2], 2, 3];
     localStorage.setItem('datas', JSON.stringify(datas));
-
 
     alert(checkLocalStorage('datas'));
 
@@ -181,4 +180,5 @@ function removeTodos(todoValue) {
     localStorage.setItem('todos', JSON.stringify(todos));
 
     alert(checkLocalStorage('todos'));
+
 }
