@@ -6,6 +6,7 @@ const filterOption = document.getElementsByClassName("radiobtn-input");
 
 
 //Event Listeners
+document.addEventListener('DOMContentLoaded', getTodos);
 todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', checkOrRemove);
 for (i = 0; i < filterOption.length; i++) {
@@ -42,13 +43,17 @@ function addTodo(event) {
     removeButton.classList.add('todo-btn', 'todo-btn-remove');
     todoItem.appendChild(removeButton);
 
+    console.log(todoInput.value);
+
+    // Add to local storage
+    saveToLocalStorage(todoInput.value)
+
     // clear Input value
     todoInput.value = '';
 }
 
 
 function checkOrRemove(event) {
-    console.log(event.target);
 
     let item = event.target;
     let todo = item.parentElement;
@@ -59,7 +64,8 @@ function checkOrRemove(event) {
         todo.addEventListener('transitionend', () => {
             todo.remove();
         })
-        // todo.remove();
+        // removing value from Local Storage
+        removeTodos(todo.children[0].value);
     }
 
     // mark todo as done
@@ -98,4 +104,74 @@ function filterTodo(e) {
                 break;
         }
     });
+}
+
+function checkLocalStorage(array, key) {
+
+    //Check if there is any todos already set
+    if (localStorage.getItem(key) === null) {
+        return array = [];
+    } else {
+        return array = JSON.parse(localStorage.getItem(key))
+    }
+
+}
+
+
+function saveToLocalStorage(todo) {
+
+    let todos;
+    todos = checkLocalStorage(todos, 'todos');
+    todos.push(todo);
+    localStorage.setItem('todos', JSON.stringify(todos));
+
+}
+
+function getTodos() {
+
+    let todos;
+
+    todos = checkLocalStorage(todos, 'todos');
+
+    todos.forEach(function (todo) {
+
+        // li
+        let todoItem = document.createElement('li');
+        todoItem.classList.add("todo-item");
+        todoList.appendChild(todoItem);
+
+        // input 
+        let todoValue = document.createElement('input');
+        todoValue.classList.add("todo-value");
+        todoValue.value = todo;
+        todoItem.appendChild(todoValue);
+
+        // button Done
+        let doneButton = document.createElement('button');
+        doneButton.innerHTML = '<i class="fas fa-check-circle"></i>';
+        doneButton.classList.add('todo-btn', 'todo-btn-done');
+        todoItem.appendChild(doneButton);
+
+        // button Remove
+        let removeButton = document.createElement('button');
+        removeButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
+        removeButton.classList.add('todo-btn', 'todo-btn-remove');
+        todoItem.appendChild(removeButton);
+    })
+}
+
+function removeTodos(todoValue) {
+
+    let todos;
+    todos = checkLocalStorage(todos, 'todos');
+
+    // get index of removed value
+    const todoIndex = todos.indexOf(todoValue);
+
+    // remove array element of given index
+    todos.splice(todoIndex, 1);
+
+    // set new array into local storage
+    localStorage.setItem('todos', JSON.stringify(todos));
+    console.log(todoIndex);
 }
