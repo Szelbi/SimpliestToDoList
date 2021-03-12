@@ -6,13 +6,15 @@ const filterOption = document.getElementsByClassName("radiobtn-input");
 
 
 //Event Listeners
-document.addEventListener('DOMContentLoaded', getTodos);
+document.addEventListener('DOMContentLoaded', render);
 todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', checkOrRemove);
 for (i = 0; i < filterOption.length; i++) {
     filterOption[i].addEventListener('click', filterTodo);
 }
 
+
+let todoItems = [];
 
 
 //Functions
@@ -57,6 +59,7 @@ function checkOrRemove(event) {
 
     let item = event.target;
     let todo = item.parentElement;
+    let todoValue = todo.children[0].value;
 
     // delete todo
     if (item.classList[1] === 'todo-btn-remove') {
@@ -65,12 +68,13 @@ function checkOrRemove(event) {
             todo.remove();
         })
         // removing value from Local Storage
-        removeTodos(todo.children[0].value);
+        removeTodo(todoValue);
     }
 
     // mark todo as done
     if (item.classList[1] === 'todo-btn-done') {
         todo.classList.toggle('completed');
+        toggleDone(todoValue);
     }
 }
 
@@ -117,38 +121,54 @@ function checkLocalStorage(arrayKey) {
 
 }
 
-function saveToLocalStorage(todo) {
+function saveToLocalStorage(text) {
 
-    let todos;
-    todos = checkLocalStorage('todoitems');
-    todos.push(todo);
-    localStorage.setItem('todoitems', toJSON(todos));
+    todoItems = checkLocalStorage('todoitems');
+    // todos.push(todo);
 
+    let todo = {
+        text: text,
+        id: Date.now(),
+        checked: false,
+    };
 
-    var datas = [[1, 2], 2, 3];
-    localStorage.setItem('datas', toJSON(datas));
+    todoItems.push(todo);
+
+    localStorage.setItem('todoitems', toJSON(todoItems));
+
+    // tests
+
+    // var arr = [{ id: 0, type: 1 }, { id: 1, type: 1 }, { id: 2, type: 2 }];
+    // console.log([1, arr]);
+    // // var datas = [[1, 2], 2, 3];
+
+    // var filtered = arr.filter(function (item) {
+    //     return item.type !== 1;
+    // });
+    // console.log([2, arr]);
+    // localStorage.setItem('arr', toJSON(arr));
 
     // alert(checkLocalStorage('datas'));
 
 }
 
-function getTodos() {
+function render() {
 
-    let todos;
+    todoItems = checkLocalStorage('todoitems');
 
-    todos = checkLocalStorage('todoitems');
-
-    todos.forEach(function (todo) {
+    todoItems.forEach(function (todo) {
 
         // li
         let todoItem = document.createElement('li');
         todoItem.classList.add("todo-item");
+        if (todo.checked)
+            todoItem.classList.toggle('completed');
         todoList.appendChild(todoItem);
 
         // input 
         let todoValue = document.createElement('input');
         todoValue.classList.add("todo-value");
-        todoValue.value = todo;
+        todoValue.value = todo.text;
         todoItem.appendChild(todoValue);
 
         // button Done
@@ -165,22 +185,33 @@ function getTodos() {
     })
 }
 
-function removeTodos(todoValue) {
+function removeTodo(todoValue) {
 
-    let todos;
     todos = checkLocalStorage('todoitems');
 
-    // get index of removed value
-    const todoIndex = todos.indexOf(todoValue);
-
-    // remove array element of given index
-    todos.splice(todoIndex, 1);
+    //removing object from array
+    todoItems = todoItems.filter(item => item.text !== todoValue);
 
     // set new array into local storage
-    localStorage.setItem('todoitems', toJSON(todos));
+    localStorage.setItem('todoitems', toJSON(todoItems));
+}
 
-    alert(checkLocalStorage('todos'));
+function toggleDone(todoValue) {
 
+    todos = checkLocalStorage('todoitems');
+
+    let index = todoItems.findIndex(item => item.text === todoValue);
+
+    todoItems[index].checked = !todoItems[index].checked;
+
+    // set new array into local storage
+    localStorage.setItem('todoitems', toJSON(todoItems));
+
+}
+
+
+function alertObj(object) {
+    alert(JSON.stringify(object, null, 4));
 }
 
 
