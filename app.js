@@ -6,8 +6,9 @@ const filterOption = document.getElementsByClassName("radiobtn-input");
 
 
 //Event Listeners
-document.addEventListener('DOMContentLoaded', render);
-todoButton.addEventListener('click', addTodo);
+document.addEventListener('DOMContentLoaded', load);
+// todoButton.addEventListener('click', addTodo);
+todoButton.addEventListener('click', newTodo);
 todoList.addEventListener('click', checkOrRemove);
 for (i = 0; i < filterOption.length; i++) {
     filterOption[i].addEventListener('click', filterTodo);
@@ -16,21 +17,52 @@ for (i = 0; i < filterOption.length; i++) {
 
 let todoItems = [];
 
-
 //Functions
-function addTodo(event) {
+function newTodo(event) {
+
     //Prevent site from refreshing
     event.preventDefault();
+
+    let value = todoInput.value.trim();
+    if (value !== '') {
+        todoInput.value = '';
+        todoInput.focus();
+
+        addTodo(value);
+    }
+}
+
+function addTodo(todoValue) {
+
+    let todo = {
+        text: todoValue,
+        id: Date.now(),
+        checked: false,
+    };
+
+    // check if local storage already exists
+    todoItems = checkLocalStorage('todoitems');
+
+    todoItems.push(todo);
+
+    render(todo);
+
+    localStorage.setItem('todoitems', toJSON(todoItems));
+}
+
+function render(todo) {
 
     // li
     let todoItem = document.createElement('li');
     todoItem.classList.add("todo-item");
+    if (todo.checked)
+        todoItem.classList.toggle('completed');
     todoList.appendChild(todoItem);
 
     // input 
     let todoValue = document.createElement('input');
     todoValue.classList.add("todo-value");
-    todoValue.value = todoInput.value;
+    todoValue.value = todo.text;
     todoItem.appendChild(todoValue);
 
     // button Done
@@ -44,14 +76,6 @@ function addTodo(event) {
     removeButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
     removeButton.classList.add('todo-btn', 'todo-btn-remove');
     todoItem.appendChild(removeButton);
-
-    console.log(todoInput.value);
-
-    // Add to local storage
-    saveToLocalStorage(todoInput.value)
-
-    // clear Input value
-    todoInput.value = '';
 }
 
 
@@ -118,71 +142,23 @@ function checkLocalStorage(arrayKey) {
     } else {
         return JSON.parse(localStorage.getItem(arrayKey))
     }
-
 }
 
-function saveToLocalStorage(text) {
 
-    todoItems = checkLocalStorage('todoitems');
-    // todos.push(todo);
 
-    let todo = {
-        text: text,
-        id: Date.now(),
-        checked: false,
-    };
+function load() {
 
-    todoItems.push(todo);
+    const local = localStorage.getItem('todoitems');
 
-    localStorage.setItem('todoitems', toJSON(todoItems));
 
-    // tests
+    if (local) {
 
-    // var arr = [{ id: 0, type: 1 }, { id: 1, type: 1 }, { id: 2, type: 2 }];
-    // console.log([1, arr]);
-    // // var datas = [[1, 2], 2, 3];
+        todoItems = JSON.parse(local);
 
-    // var filtered = arr.filter(function (item) {
-    //     return item.type !== 1;
-    // });
-    // console.log([2, arr]);
-    // localStorage.setItem('arr', toJSON(arr));
-
-    // alert(checkLocalStorage('datas'));
-
-}
-
-function render() {
-
-    todoItems = checkLocalStorage('todoitems');
-
-    todoItems.forEach(function (todo) {
-
-        // li
-        let todoItem = document.createElement('li');
-        todoItem.classList.add("todo-item");
-        if (todo.checked)
-            todoItem.classList.toggle('completed');
-        todoList.appendChild(todoItem);
-
-        // input 
-        let todoValue = document.createElement('input');
-        todoValue.classList.add("todo-value");
-        todoValue.value = todo.text;
-        todoItem.appendChild(todoValue);
-
-        // button Done
-        let doneButton = document.createElement('button');
-        doneButton.innerHTML = '<i class="fas fa-check-circle"></i>';
-        doneButton.classList.add('todo-btn', 'todo-btn-done');
-        todoItem.appendChild(doneButton);
-
-        // button Remove
-        let removeButton = document.createElement('button');
-        removeButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
-        removeButton.classList.add('todo-btn', 'todo-btn-remove');
-        todoItem.appendChild(removeButton);
-    })
+        todoItems.forEach(obj => {
+            render(obj);
+        });
+    }
 }
 
 function removeTodo(todoValue) {
@@ -202,6 +178,7 @@ function toggleDone(todoValue) {
 
     let index = todoItems.findIndex(item => item.text === todoValue);
 
+    //
     todoItems[index].checked = !todoItems[index].checked;
 
     // set new array into local storage
