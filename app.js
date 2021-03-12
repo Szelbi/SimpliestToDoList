@@ -36,18 +36,17 @@ function addTodo(todoValue) {
 
     let todo = {
         text: todoValue,
-        id: Date.now(),
+        // id: Date.now(),
         checked: false,
     };
 
     // check if local storage already exists
     todoItems = checkLocalStorage('todoitems');
-
     todoItems.push(todo);
+    localStorage.setItem('todoitems', toJSON(todoItems));
 
     render(todo);
 
-    localStorage.setItem('todoitems', toJSON(todoItems));
 }
 
 function render(todo) {
@@ -91,7 +90,6 @@ function checkOrRemove(event) {
         todo.addEventListener('transitionend', () => {
             todo.remove();
         })
-        // removing value from Local Storage
         removeTodo(todoValue);
     }
 
