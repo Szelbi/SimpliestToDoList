@@ -117,13 +117,13 @@ $purple: hsl(288, 100%, 40%);
 }
 
 .completed {
-	text-decoration: line-through;
-	opacity: 0.5;
+	text-decoration: line-through #666;
+	opacity: 0.7;
 }
 
 .fall {
 	transform: translateY(8rem) rotateZ(20deg);
-	opacity: 0;
+	opacity: 0.2;
 }
 
 .filter-container {
