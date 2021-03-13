@@ -203,8 +203,3 @@ function alertObj(object) {
 function toJSON(array) {
     return JSON.stringify(array);
 }
-
-
-/**
- * test
- */
