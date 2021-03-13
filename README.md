@@ -1,3 +1,3 @@
 # SimpliestToDoList
 
-Just another boring Todo list with vanilla JS
+Just another boring vanilla JS Todo list with filters and local memory storage.
