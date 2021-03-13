@@ -77,7 +77,6 @@ function render(todo) {
     todoItem.appendChild(removeButton);
 }
 
-
 function checkOrRemove(event) {
 
     let item = event.target;
@@ -102,7 +101,6 @@ function checkOrRemove(event) {
         toggleDone(todoId);
     }
 }
-
 
 function filterTodo(e) {
     const todos = todoList.childNodes;
@@ -144,8 +142,6 @@ function checkLocalStorage(arrayKey) {
         return JSON.parse(localStorage.getItem(arrayKey))
     }
 }
-
-
 
 function load() {
 
