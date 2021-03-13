@@ -36,7 +36,7 @@ function addTodo(todoValue) {
 
     let todo = {
         text: todoValue,
-        // id: Date.now(),
+        id: Date.now(),
         checked: false,
     };
 
@@ -61,7 +61,9 @@ function render(todo) {
     // input 
     let todoValue = document.createElement('input');
     todoValue.classList.add("todo-value");
+    todoValue.id = todo.id;
     todoValue.value = todo.text;
+    todoValue.addEventListener('keyup', updateTodoValue);
     todoItem.appendChild(todoValue);
 
     // button Done
@@ -82,7 +84,10 @@ function checkOrRemove(event) {
 
     let item = event.target;
     let todo = item.parentElement;
-    let todoValue = todo.children[0].value;
+    let todoId = todo.children[0].id;
+
+    // console.log(['item', item], ['todo', todo], ['todoValue', todoValue]);
+
 
     // delete todo
     if (item.classList[1] === 'todo-btn-remove') {
@@ -90,13 +95,13 @@ function checkOrRemove(event) {
         todo.addEventListener('transitionend', () => {
             todo.remove();
         })
-        removeTodo(todoValue);
+        removeTodo(todoId);
     }
 
     // mark todo as done
     if (item.classList[1] === 'todo-btn-done') {
         todo.classList.toggle('completed');
-        toggleDone(todoValue);
+        toggleDone(todoId);
     }
 }
 
@@ -159,27 +164,40 @@ function load() {
     }
 }
 
-function removeTodo(todoValue) {
+function removeTodo(todoId) {
 
     todos = checkLocalStorage('todoitems');
 
     //removing object from array
-    todoItems = todoItems.filter(item => item.text !== todoValue);
+    todoItems = todoItems.filter(item => item.id !== Number(todoId));
 
     // set new array into local storage
     localStorage.setItem('todoitems', toJSON(todoItems));
 }
 
-function toggleDone(todoValue) {
+function toggleDone(todoId) {
 
     todos = checkLocalStorage('todoitems');
 
-    let index = todoItems.findIndex(item => item.text === todoValue);
+    let index = todoItems.findIndex(item => item.id === Number(todoId));
 
     //
     todoItems[index].checked = !todoItems[index].checked;
 
     // set new array into local storage
+    localStorage.setItem('todoitems', toJSON(todoItems));
+}
+
+function updateTodoValue(event) {
+
+    console.log(this.value);
+    console.log(this.id);
+
+    todos = checkLocalStorage('todoitems');
+
+    let index = todoItems.findIndex(item => item.id === Number(this.id));
+    todoItems[index].text = this.value
+
     localStorage.setItem('todoitems', toJSON(todoItems));
 
 }
