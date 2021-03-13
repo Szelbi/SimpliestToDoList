@@ -13,7 +13,6 @@ for (i = 0; i < filterOption.length; i++) {
     filterOption[i].addEventListener('click', filterTodo);
 }
 
-
 let todoItems = [];
 
 //Functions
@@ -199,7 +198,6 @@ function updateTodoValue(event) {
     localStorage.setItem('todoitems', toJSON(todoItems));
 
 }
-
 
 function alertObj(object) {
     alert(JSON.stringify(object, null, 4));
