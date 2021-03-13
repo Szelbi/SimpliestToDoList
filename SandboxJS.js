@@ -24,8 +24,6 @@ for (let index = 0; index < 3; index++) {
 const index = todoItems.findIndex(item => item.id === 2)
 console.log('index:', index);
 
-console.log('todoItems:', todoItems)
-
 todoItems = todoItems.filter(item => item.id !== index);
 
 console.log('todoItems:', todoItems)
