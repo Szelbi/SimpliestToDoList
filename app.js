@@ -7,7 +7,6 @@ const filterOption = document.getElementsByClassName("radiobtn-input");
 
 //Event Listeners
 document.addEventListener('DOMContentLoaded', load);
-// todoButton.addEventListener('click', addTodo);
 todoButton.addEventListener('click', newTodo);
 todoList.addEventListener('click', checkOrRemove);
 for (i = 0; i < filterOption.length; i++) {
@@ -152,7 +151,6 @@ function checkLocalStorage(arrayKey) {
 function load() {
 
     const local = localStorage.getItem('todoitems');
-
 
     if (local) {
 
