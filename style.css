@@ -182,7 +182,7 @@ body {
 }
 
 .radiobtn label {
-  border-radius: 5px;
+  border-radius: 0.3rem;
   padding: 0.6rem 1.2rem;
   cursor: pointer;
   -webkit-transition: all 0.3s ease;
